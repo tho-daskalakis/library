@@ -1,3 +1,9 @@
+// Get DOM elements
+
+const container = document.querySelector('.container');
+
+const mainGrid = container.querySelector('.main-grid');
+
 /**
  * Current library of books.
  */
@@ -22,7 +28,7 @@ function Book(name, author, pages, read) {
  * @returns {String} Book information
  */
 Book.prototype.info = function() {
-    const isRead = read ? 'is read' : 'not read yet';
+    const isRead = this.read ? 'is read' : 'not read yet';
     return `${this.name} by ${this.author}, ${this.pages} pages, ${isRead}.`
 }
 
@@ -37,3 +43,52 @@ Book.prototype.info = function() {
 function addBookToLibrary(name, author, pages, read) {
     myLibrary.push(new Book(name, author, pages, read));
 }
+
+function createCard(book) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const sideColor = document.createElement('div');
+    sideColor.classList.add('side-color');
+    card.appendChild(sideColor);
+
+    const cardTitle = document.createElement('div');
+    cardTitle.classList.add('title');
+    cardTitle.textContent = book.name;
+    card.appendChild(cardTitle);
+
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.textContent = book.info();
+    card.appendChild(content);
+
+    const actions = document.createElement('div');
+    actions.classList.add('actions');
+    card.appendChild(actions);
+
+    return card;
+}
+
+function updateLibraryDisplay() {
+    // Empty grid
+    const gridBooks = [...mainGrid.children];
+    gridBooks.forEach(child => {
+        mainGrid.removeChild(child);
+    });
+
+    // Add children from library
+    myLibrary.forEach(book => {
+        mainGrid.appendChild(createCard(book));
+    });
+}
+
+// To be deleted
+const defaultBook = new Book("Book Title Goes Here", "Author", 100, true);
+
+const nBooks = 6;
+for (let i = 1; i < nBooks; i++) {
+    myLibrary.push(defaultBook);
+
+}
+
+updateLibraryDisplay();
