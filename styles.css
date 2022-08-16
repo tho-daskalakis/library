@@ -5,6 +5,7 @@ html, body {
 }
 
 .container {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 3fr 15fr 1fr;
