@@ -46,6 +46,7 @@ html, body {
   width: clamp(200px, 80%, 350px);
   height: clamp(250px, 70%, 400px);
   background-color: silver;
+  border-radius: 20px;
   display: grid;
   grid-template-columns: 1fr 15fr;
   grid-template-rows: 2fr 5fr 3fr;
@@ -59,14 +60,15 @@ html, body {
   grid-column: 2/span 1;
   grid-row: 1/span 1;
   padding: 1%;
-  font-size: 22px;
+  font-size: min(22px, 2.5vmax);
   font-weight: 600;
 }
 .card .content {
   grid-column: 2/span 1;
   grid-row: 2/span 1;
   padding: 1%;
-  font-size: 18px;
+  font-size: min(20px, 2vmax);
+  font-weight: 520;
 }
 .card .actions {
   grid-column: 2/span 1;
