@@ -9,3 +9,20 @@ html, body {
     grid-template-columns: 1fr;
     grid-template-rows: 3fr 15fr 1fr;
 }
+
+@mixin on-grid($row, $row-span: 1, $col, $col-span: 1) {
+    grid-column: $col / span $col-span;
+    grid-row: $row / span $row-span;
+}
+
+.header {
+    @include on-grid(1, -span, 1, -span);
+}
+
+.main {
+    @include on-grid(2, -span, 1, -span);
+}
+
+.footer {
+    @include on-grid(3, -span, 1, -span);
+}
