@@ -2,28 +2,76 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: "Lora", serif;
 }
 
 .container {
   height: 100%;
+  overflow: scroll;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 3fr 15fr 1fr;
 }
 
 .header {
-  grid-column: 1/span -span;
-  grid-row: 1/span -span;
+  grid-column: 1/span 1;
+  grid-row: 1/span 1;
+  background-color: #065f46;
 }
 
 .main {
-  grid-column: 1/span -span;
-  grid-row: 2/span -span;
+  grid-column: 1/span 1;
+  grid-row: 2/span 1;
+  background-color: #047857;
+  overflow: scroll;
+}
+.main .main-grid {
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  grid-auto-rows: minmax(250px, 450px);
+  gap: max(8px, 2%);
+  margin: max(8px, 2%);
 }
 
 .footer {
-  grid-column: 1/span -span;
-  grid-row: 3/span -span;
+  grid-column: 1/span 1;
+  grid-row: 3/span 1;
+  background-color: #10b981;
+}
+
+.card {
+  width: clamp(200px, 100%, 350px);
+  height: clamp(250px, 80%, 400px);
+  background-color: silver;
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  grid-template-rows: 2fr 5fr 3fr;
+}
+.card .side-color {
+  grid-column: 1/span 1;
+  grid-row: 1/span 3;
+  background-color: #fbbf24;
+}
+.card .title {
+  grid-column: 2/span 1;
+  grid-row: 1/span 1;
+  padding: 1%;
+  font-size: 22px;
+  font-weight: 600;
+}
+.card .content {
+  grid-column: 2/span 1;
+  grid-row: 2/span 1;
+  padding: 1%;
+  font-size: 18px;
+}
+.card .actions {
+  grid-column: 2/span 1;
+  grid-row: 3/span 1;
 }
 
 /*# sourceMappingURL=styles.css.map */
