@@ -7,7 +7,6 @@ html, body {
 
 .container {
   height: 100%;
-  overflow: scroll;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 3fr 15fr 1fr;
@@ -23,7 +22,7 @@ html, body {
   grid-column: 1/span 1;
   grid-row: 2/span 1;
   background-color: #047857;
-  overflow: scroll;
+  overflow: auto;
 }
 .main .main-grid {
   height: 100%;
@@ -31,10 +30,10 @@ html, body {
   justify-items: center;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+  grid-template-rows: minmax(250px, 450px);
   grid-auto-rows: minmax(250px, 450px);
   gap: max(8px, 2%);
-  margin: max(8px, 2%);
 }
 
 .footer {
@@ -44,8 +43,8 @@ html, body {
 }
 
 .card {
-  width: clamp(200px, 100%, 350px);
-  height: clamp(250px, 80%, 400px);
+  width: clamp(200px, 80%, 350px);
+  height: clamp(250px, 70%, 400px);
   background-color: silver;
   display: grid;
   grid-template-columns: 1fr 15fr;

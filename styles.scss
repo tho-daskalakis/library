@@ -25,7 +25,6 @@ $amber-400: #fbbf24;
 
 .container {
     height: 100%;
-    overflow: scroll;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -47,7 +46,7 @@ $amber-400: #fbbf24;
     @include on-grid(2, 1, 1, 1);
 
     background-color: $emerald-700;
-    overflow: scroll;
+    overflow: auto;
     
     .main-grid {
         height: 100%;
@@ -55,10 +54,10 @@ $amber-400: #fbbf24;
         justify-items: center;
         justify-content: center;
         align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+        grid-template-rows: minmax(250px, 450px);
         grid-auto-rows: minmax(250px, 450px);
         gap: max(8px, 2%);
-        margin: max(8px, 2%);
     }
 }
 
@@ -76,8 +75,8 @@ $amber-400: #fbbf24;
 $side-color: $amber-400;
 
 .card {
-    width: clamp(200px, 100%, 350px);
-    height: clamp(250px, 80%, 400px);
+    width: clamp(200px, 80%, 350px);
+    height: clamp(250px, 70%, 400px);
     background-color: silver;
 
     display: grid;
