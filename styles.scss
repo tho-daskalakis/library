@@ -19,6 +19,7 @@ $emerald-600: #059669;
 $emerald-500: #10b981;
 $emerald-400: #34d399;
 
+$amber-600: #d97706;
 $amber-400: #fbbf24;
 
 // ~~~~~~~~~~
@@ -41,9 +42,33 @@ div.add-btn {
 
     button {
         width: 50%;
-        height: 50%;
+        height: 20%;
+        font-size: min(20px, 2vmax);
+        font-weight: 520;
+        border-radius: 30px;
+        box-shadow: none;
+        border: none;
+        background-color: silver;
+
+        &:hover {
+            background-color: $emerald-400;
+            color: black;
+        }
+
+        &:active {
+            background-color: $amber-600;
+            color: white;
+        }
     }
 }
+
+h1.top-bar {
+    font-size: clamp(28px, 2.8vmax, 32px);
+    font-weight: 800;
+    text-align: center;
+}
+
+// ~~~~~~~~~~
 
 @mixin on-grid($row, $row-span: 1, $col, $col-span: 1) {
     grid-column: $col / span $col-span;

@@ -21,7 +21,27 @@ div.add-btn {
 }
 div.add-btn button {
   width: 50%;
-  height: 50%;
+  height: 20%;
+  font-size: min(20px, 2vmax);
+  font-weight: 520;
+  border-radius: 30px;
+  box-shadow: none;
+  border: none;
+  background-color: silver;
+}
+div.add-btn button:hover {
+  background-color: #34d399;
+  color: black;
+}
+div.add-btn button:active {
+  background-color: #d97706;
+  color: white;
+}
+
+h1.top-bar {
+  font-size: clamp(28px, 2.8vmax, 32px);
+  font-weight: 800;
+  text-align: center;
 }
 
 .header {
