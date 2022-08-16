@@ -1,8 +1,20 @@
 // Get DOM elements
+const defaultBook = new Book("Book Title Goes Here", "Author", 100, true);
 
 const container = document.querySelector('.container');
 
 const mainGrid = container.querySelector('.main-grid');
+
+const addBookButton = mainGrid.querySelector('button.add-book');
+
+addBookButton.textContent = 'Add New Book';
+
+addBookButton.addEventListener('click', function() {
+    addBookToLibrary(defaultBook.name, defaultBook.author, 
+        defaultBook.pages, defaultBook.read);
+    
+    updateLibraryDisplay();
+});
 
 /**
  * Current library of books.
@@ -72,7 +84,7 @@ function createCard(book) {
 function updateLibraryDisplay() {
     // Empty grid
     const gridBooks = [...mainGrid.children];
-    gridBooks.forEach(child => {
+    gridBooks.slice(1, gridBooks.length).forEach(child => {
         mainGrid.removeChild(child);
     });
 
@@ -82,8 +94,8 @@ function updateLibraryDisplay() {
     });
 }
 
+/**
 // To be deleted
-const defaultBook = new Book("Book Title Goes Here", "Author", 100, true);
 
 const nBooks = 6;
 for (let i = 1; i < nBooks; i++) {
@@ -92,3 +104,4 @@ for (let i = 1; i < nBooks; i++) {
 }
 
 updateLibraryDisplay();
+*/
