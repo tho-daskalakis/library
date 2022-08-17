@@ -120,7 +120,6 @@ const defaultBook = new Book("Do Androids Dream of Electric Sheep?",
 "Philip K. Dick", 210, true);
 
 addBookToLibrary(defaultBook.name, defaultBook.author, defaultBook.pages, 
-    defaultBook.read);
-console.log(myLibrary);
+defaultBook.read);
 
 updateLibraryDisplay();
