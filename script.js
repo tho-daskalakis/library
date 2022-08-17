@@ -3,6 +3,7 @@
 const formOverlay = document.querySelector('.add-book-overlay');
 formOverlay.style.display = 'none';
 
+const form = formOverlay.querySelector('form');
 
 const container = document.querySelector('.container');
 
@@ -16,12 +17,32 @@ addBookButton.addEventListener('click', (e) => {
     setFormDisplay('flex');
 });
 
+// Get form elements
+
+const titleField = formOverlay.querySelector('#title');
+const authorField = formOverlay.querySelector('#author');
+const pagesField = formOverlay.querySelector('#pages');
+const readField = formOverlay.querySelector('#read');
+
 const confirmFormBtn = document.querySelector('.confirm-form-btn');
+
+confirmFormBtn.addEventListener('click', (e) => {
+    addBookToLibrary(
+    titleField.value,
+    authorField.value,
+    pagesField.value,
+    readField.value
+    );
+
+    setFormDisplay('none');
+    form.reset();
+});
 
 const cancelFormBtn = document.querySelector('.cancel-form-btn');
 
 cancelFormBtn.addEventListener('click', (e) => {
-    return false;
+    setFormDisplay('none');
+    form.reset();
 });
 
 /**
@@ -62,6 +83,8 @@ Book.prototype.info = function() {
  */
 function addBookToLibrary(name, author, pages, read) {
     myLibrary.push(new Book(name, author, pages, read));
+
+    updateLibraryDisplay();
 }
 
 /**
@@ -110,11 +133,15 @@ function updateLibraryDisplay() {
     myLibrary.forEach(book => {
         mainGrid.appendChild(createCard(book));
     });
+
+    console.log(myLibrary);
 }
 
 function setFormDisplay(d) {
     formOverlay.style.display = d;
 }
+
+// Add a default book to be displayed
 
 const defaultBook = new Book("Do Androids Dream of Electric Sheep?", 
 "Philip K. Dick", 210, true);
