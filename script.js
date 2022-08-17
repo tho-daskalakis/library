@@ -56,6 +56,11 @@ function addBookToLibrary(name, author, pages, read) {
     myLibrary.push(new Book(name, author, pages, read));
 }
 
+/**
+ * 
+ * @param {Book} book The book to be put in the card
+ * @returns A card element containing book information
+ */
 function createCard(book) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -81,6 +86,11 @@ function createCard(book) {
     return card;
 }
 
+/**
+ * Updates app interface with current books. 
+ * Should be called after every change in the library.
+ * @see {@link myLibrary}
+ */
 function updateLibraryDisplay() {
     // Empty grid
     const gridBooks = [...mainGrid.children];
@@ -93,15 +103,3 @@ function updateLibraryDisplay() {
         mainGrid.appendChild(createCard(book));
     });
 }
-
-/**
-// To be deleted
-
-const nBooks = 6;
-for (let i = 1; i < nBooks; i++) {
-    myLibrary.push(defaultBook);
-
-}
-
-updateLibraryDisplay();
-*/

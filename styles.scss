@@ -21,6 +21,69 @@ $emerald-400: #34d399;
 
 $amber-600: #d97706;
 $amber-400: #fbbf24;
+$amber-200: #fde68a;
+
+// ~~~~~~~~~~
+
+.add-book-overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($color: $amber-200, $alpha: 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-book-form {
+    width: clamp(280px, 90%, 540px);
+    height: clamp(320px, 70%, 920px);
+    background-color: azure;
+    border-radius: 20px;
+    border: solid 4px lightgray;
+    padding: 8% 2%;
+    margin: 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8%;
+}
+
+@mixin form-fields {
+    width: 80%;
+    
+    & > * {
+        font-size: 2.6vmax;
+        font-weight: 550;
+    }
+}
+
+.form-input {
+    @include form-fields();
+
+    display: flex;
+    flex-direction: column;
+}
+
+.form-checkbox {
+    @include form-fields();
+
+    display: flex;
+}
+
+.form-actions {
+    @include form-fields();
+
+    height: 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+}
 
 // ~~~~~~~~~~
 
