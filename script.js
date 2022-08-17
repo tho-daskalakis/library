@@ -1,4 +1,8 @@
 // Get DOM elements
+
+const formOverlay = document.querySelector('.add-book-overlay');
+formOverlay.style.display = 'none';
+
 const defaultBook = new Book("Book Title Goes Here", "Author", 100, true);
 
 const container = document.querySelector('.container');
@@ -9,11 +13,16 @@ const addBookButton = mainGrid.querySelector('button.add-book');
 
 addBookButton.textContent = 'Add New Book';
 
-addBookButton.addEventListener('click', function() {
-    addBookToLibrary(defaultBook.name, defaultBook.author, 
-        defaultBook.pages, defaultBook.read);
-    
-    updateLibraryDisplay();
+addBookButton.addEventListener('click', (e) => {
+    setFormDisplay('flex');
+});
+
+const confirmFormBtn = document.querySelector('.confirm-form-btn');
+
+const cancelFormBtn = document.querySelector('.cancel-form-btn');
+
+cancelFormBtn.addEventListener('click', (e) => {
+    return false;
 });
 
 /**
@@ -102,4 +111,8 @@ function updateLibraryDisplay() {
     myLibrary.forEach(book => {
         mainGrid.appendChild(createCard(book));
     });
+}
+
+function setFormDisplay(d) {
+    formOverlay.style.display = d;
 }
