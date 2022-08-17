@@ -3,7 +3,6 @@
 const formOverlay = document.querySelector('.add-book-overlay');
 formOverlay.style.display = 'none';
 
-const defaultBook = new Book("Book Title Goes Here", "Author", 100, true);
 
 const container = document.querySelector('.container');
 
@@ -116,3 +115,12 @@ function updateLibraryDisplay() {
 function setFormDisplay(d) {
     formOverlay.style.display = d;
 }
+
+const defaultBook = new Book("Do Androids Dream of Electric Sheep?", 
+"Philip K. Dick", 210, true);
+
+addBookToLibrary(defaultBook.name, defaultBook.author, defaultBook.pages, 
+    defaultBook.read);
+console.log(myLibrary);
+
+updateLibraryDisplay();

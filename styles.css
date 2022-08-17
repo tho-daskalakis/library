@@ -192,6 +192,7 @@ h1.top-bar {
   padding: 1%;
   font-size: min(22px, 2.5vmax);
   font-weight: 600;
+  font-style: italic;
 }
 .card .content {
   grid-column: 2/span 1;
