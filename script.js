@@ -31,7 +31,7 @@ confirmFormBtn.addEventListener('click', (e) => {
     titleField.value,
     authorField.value,
     pagesField.value,
-    readField.value
+    readField.checked,
     );
 
     setFormDisplay('none');
