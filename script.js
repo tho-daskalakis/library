@@ -56,12 +56,14 @@ let myLibrary = [];
  * @param {String} author Book's author
  * @param {Number} pages Number of pages
  * @param {Boolean} read Is read
+ * @param {Number} index Index in library
  */
-function Book(name, author, pages, read) {
+function Book(name, author, pages, read, index) {
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.index = index;
 }
 
 /**
@@ -81,7 +83,8 @@ Book.prototype.info = function() {
  * @param {Number} pages Number of pages
  * @param {Boolean} read Is read
  */
-function addBookToLibrary(name, author, pages, read) {
+function addBookToLibrary(name, author, pages, read, 
+    index = myLibrary.length) {
     myLibrary.push(new Book(name, author, pages, read));
 
     updateLibraryDisplay();
@@ -119,6 +122,9 @@ function createCard(book) {
     actionDelDiv.classList.add('card-action-delete');
     
     const delBtn = document.createElement('button');
+    delBtn.addEventListener('click', (e) => {
+        deleteCard(book.index);
+    });
     
     const delImg = document.createElement('img');
     delImg.setAttribute('src', './svg/delete_FILL0_wght400_GRAD0_opsz48.svg');
@@ -152,6 +158,11 @@ function updateLibraryDisplay() {
 
 function setFormDisplay(d) {
     formOverlay.style.display = d;
+}
+
+function deleteCard(index) {
+    myLibrary.splice(index, 1);
+    updateLibraryDisplay();
 }
 
 // Add a default book to be displayed
