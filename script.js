@@ -133,8 +133,6 @@ function updateLibraryDisplay() {
     myLibrary.forEach(book => {
         mainGrid.appendChild(createCard(book));
     });
-
-    console.log(myLibrary);
 }
 
 function setFormDisplay(d) {
@@ -148,5 +146,3 @@ const defaultBook = new Book("Do Androids Dream of Electric Sheep?",
 
 addBookToLibrary(defaultBook.name, defaultBook.author, defaultBook.pages, 
 defaultBook.read);
-
-updateLibraryDisplay();
