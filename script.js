@@ -85,9 +85,11 @@ Book.prototype.info = function() {
  */
 function addBookToLibrary(name, author, pages, read, 
     index = myLibrary.length) {
-    myLibrary.push(new Book(name, author, pages, read));
+    myLibrary.push(new Book(name, author, pages, read, index));
 
     updateLibraryDisplay();
+
+    console.log(index);
 }
 
 /**
@@ -161,7 +163,13 @@ function setFormDisplay(d) {
 }
 
 function deleteCard(index) {
+    console.log(index);
     myLibrary.splice(index, 1);
+
+    // Update indexes
+
+    myLibrary.forEach(book => book.index = myLibrary.indexOf(book));
+
     updateLibraryDisplay();
 }
 
