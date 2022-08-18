@@ -112,6 +112,21 @@ function createCard(book) {
 
     const actions = document.createElement('div');
     actions.classList.add('actions');
+    
+    // Card actions
+    
+    const actionDelDiv = document.createElement('div');
+    actionDelDiv.classList.add('card-action-delete');
+    
+    const delBtn = document.createElement('button');
+    
+    const delImg = document.createElement('img');
+    delImg.setAttribute('src', './svg/delete_FILL0_wght400_GRAD0_opsz48.svg');
+    delBtn.appendChild(delImg);
+    
+    actionDelDiv.appendChild(delBtn);
+    actions.appendChild(actionDelDiv);
+
     card.appendChild(actions);
 
     return card;

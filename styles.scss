@@ -263,5 +263,34 @@ $side-color: $amber-400;
     .actions {
         grid-column: 2 / span 1;
         grid-row: 3 / span 1;
+        padding: 6%;
+
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 4%;
+    }
+}
+
+.card-action-delete {
+    width: clamp(40px, 20%, 100px);
+    height: auto;
+    padding: 0;
+    
+    button {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        padding: 0;
+
+        &:hover {
+            background-color: red;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
 }
