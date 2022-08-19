@@ -88,8 +88,6 @@ function addBookToLibrary(name, author, pages, read,
     myLibrary.push(new Book(name, author, pages, read, index));
 
     updateLibraryDisplay();
-
-    console.log(index);
 }
 
 /**
@@ -119,7 +117,10 @@ function createCard(book) {
     actions.classList.add('actions');
     
     // Card actions
+    //
     
+    // Delete
+
     const actionDelDiv = document.createElement('div');
     actionDelDiv.classList.add('card-action-delete');
     
@@ -134,6 +135,34 @@ function createCard(book) {
     
     actionDelDiv.appendChild(delBtn);
     actions.appendChild(actionDelDiv);
+
+    // Toggle read
+
+    const actionReadDiv = document.createElement('div');
+    actionReadDiv.classList.add('card-action-read');
+    
+    const readBtn = document.createElement('button');
+    readBtn.addEventListener('click', (e) => {
+        toggleReadStatus(book, readBtn);
+    });
+    
+    const readImg = document.createElement('img');
+    readImg.setAttribute('src', 
+    './svg/visibility_FILL0_wght400_GRAD0_opsz48.svg');
+
+    const notReadImg = document.createElement('img');
+    notReadImg.setAttribute('src', 
+    './svg/visibility_off_FILL0_wght400_GRAD0_opsz48.svg');
+
+    if (book.read) {
+        readBtn.appendChild(readImg);
+    }
+    else {
+        readBtn.appendChild(notReadImg);
+    }
+
+    actionReadDiv.appendChild(readBtn);
+    actions.appendChild(actionReadDiv);
 
     card.appendChild(actions);
 
@@ -169,6 +198,29 @@ function deleteCard(index) {
     // Update indexes
 
     myLibrary.forEach(book => book.index = myLibrary.indexOf(book));
+
+    updateLibraryDisplay();
+}
+
+function toggleReadStatus(book, readBtn) {
+    const readImg = document.createElement('img');
+    readImg.setAttribute('src', 
+    './svg/visibility_FILL0_wght400_GRAD0_opsz48.svg');
+
+    const notReadImg = document.createElement('img');
+    notReadImg.setAttribute('src', 
+    './svg/visibility_off_FILL0_wght400_GRAD0_opsz48.svg');
+
+    if (book.read) {
+        readBtn.childNodes.forEach(child => readBtn.removeChild(child));
+        readBtn.appendChild(notReadImg);
+    }
+    else {
+        readBtn.childNodes.forEach(child => readBtn.removeChild(child));
+        readBtn.appendChild(readImg);
+    }
+
+    book.read = !book.read;
 
     updateLibraryDisplay();
 }
