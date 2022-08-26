@@ -47,18 +47,20 @@ cancelFormBtn.addEventListener("click", (e) => {
 
 let myLibrary = [];
 
-function Book(name, author, pages, read, index) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.index = index;
-}
+class Book {
+  constructor(name, author, pages, read, index) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.index = index;
+  }
 
-Book.prototype.info = function () {
-  const isRead = this.read ? "is read" : "not read yet";
-  return `${this.name} by ${this.author}, ${this.pages} pages, ${isRead}.`;
-};
+  info() {
+    const isRead = this.read ? "is read" : "not read yet";
+    return `${this.name} by ${this.author}, ${this.pages} pages, ${isRead}.`;
+  }
+}
 
 function addBookToLibrary(name, author, pages, read, index = myLibrary.length) {
   myLibrary.push(new Book(name, author, pages, read, index));
